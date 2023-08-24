@@ -145,7 +145,7 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{66pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{120pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
 \ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{96pt*\gnumericScale}@{}}x\end{tabular}}
 
@@ -189,104 +189,143 @@
 
 \hhline{|-|-|-}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{parameter}}
+	{\gnumericPB{\centering}\gnumbox[c]{Parameter}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{values}}
+	{\gnumericPB{\centering}\gnumbox[c]{Values}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{description}}
+	{\gnumericPB{\centering}\gnumbox[c]{Description}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{$\vec{m_1}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{m_1}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{8\\0}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{8\\0}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{Direction vector of AB}}
+	{\gnumericPB{\centering}\gnumbox[c]{Direction vector of $\vec{B}-\vec{A}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{$\vec{m_2}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{m_2}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{-7\\4}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-7\\4}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{Direction vector of BC}}
+	{\gnumericPB{\centering}\gnumbox[c]{Direction vector of $\vec{C}-\vec{B}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{$\vec{m_3}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{m_3}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{-1\\-4}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-1\\-4}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{Direction vector of CA}}
+	{\gnumericPB{\centering}\gnumbox[c]{Direction vector of $\vec{A}-\vec{C}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{$\norm{\vec{BC}}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\norm{\vec{C}-\vec{B}}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{8.06}}
+	{\gnumericPB{\centering}\gnumbox[c]{8.06}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{lenght of BC}}
+	{\gnumericPB{\centering}\gnumbox[c]{lenght of $\vec{C}-\vec{B}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{rank}}
+	{\gnumericPB{\centering}\gnumbox[c]{rank of the matrix = \myvec{1,1,1\\-3,5,-2\\-1,-1,3}}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{3}}
+	{\gnumericPB{\centering}\gnumbox[c]{3}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{non collinear}}
+	{\gnumericPB{\centering}\gnumbox[c]{non collinear}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{$\vec{n}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{n_1}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{\myvec{4\\7}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{0\\-8}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\setlength{\gnumericMultiRowLength}{0pt}%
 	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
 	 \multirow{2}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
-	 \gnumericPB{\raggedright}\gnumbox[l]{BC}}}}
+	 \gnumericPB{\centering}\gnumbox[c]{normal to $\vec{B}-\vec{A}$}}}}
 \\
 \hhline{|--|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{c}}
+	{\gnumericPB{\centering}\gnumbox[c]{$c_1$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{13}}
+	{\gnumericPB{\centering}\gnumbox[c]{8}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{n_2}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{4\\7}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
+	 \multirow{2}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}\gnumbox[c]{normal to $\vec{C}-\vec{B}$}}}}
+\\
+\hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{$c_2$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{13}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{n_3}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-4\\1}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
+	 \multirow{2}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}\gnumbox[c]{normal to $\vec{A}-\vec{C}$}}}}	
+\\
+\hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{$c_3$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox[c]{-5}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{} 
+
 
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{Area}}
+	{\gnumericPB{\centering}\gnumbox[c]{Area}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{16}}
+	{\gnumericPB{\centering}\gnumbox[c]{16 $cm^{2}$}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{Area of triangle}}
+	{\gnumericPB{\centering}\gnumbox[c]{Area of triangle}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{$\angle{A}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\angle{A}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{75.96\degree}}
+	{\gnumericPB{\centering}\gnumbox[c]{75.96\degree}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{\setlength{\gnumericMultiRowLength}{0pt}%
 	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
 	 \multirow{3}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
-	 \gnumericPB{\raggedright}\gnumbox[l]{Angle}}}}
+	 \gnumericPB{\centering}\gnumbox[c]{Angles}}}}
 \\
 \hhline{|--|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{$\angle{B}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\angle{B}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{29.74\degree}}
+	{\gnumericPB{\centering}\gnumbox[c]{29.74\degree}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{}
 \\
 \hhline{|--|~}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\raggedright}\gnumbox[l]{$\angle{C}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\angle{C}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\raggedleft}\gnumbox[r]{74.29\degree}}
+	{\gnumericPB{\centering}\gnumbox[c]{74.29\degree}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
 	{}
 \\

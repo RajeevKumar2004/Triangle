@@ -76,7 +76,7 @@ def fig1_1_3(A,B,C):
     plt.legend(loc='best')
     plt.grid() 
     plt.axis('equal')
-    plt.savefig('/home/peter/TRIANGLE/figs/fig1.1.3.png')
+    plt.savefig('/home/peter/TRIANGLE/figs/fig1.1.3.pdf')
 
 fig1_1_3(A,B,C)
 #Question1.1.4
@@ -103,38 +103,7 @@ def norm_vec(C,B):
 n=norm_vec(C,B)
 pro=n@B
 print(n,"x=",pro)
-def line_gen(A,B):
-  len =10
-  dim = A.shape[0]
-  x_AB = np.zeros((dim,len))
-  lam_1 = np.linspace(0,1,len)
-  for i in range(len):
-    temp1 = A + lam_1[i]*(B-A)
-    x_AB[:,i]= temp1.T
-  return x_AB
-def fig1_1_5(B,C):
-    x_BC = line_gen(B,C)
-    plt.figure(2)
-    plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-    B = B.reshape(-1,1)
-    C = C.reshape(-1,1)
-    tri_coords = np.block([[B,C]])
-    plt.scatter(tri_coords[0,:], tri_coords[1,:])
-    vert_labels = ['B','C']
-    for i, txt in enumerate(vert_labels):
-        plt.annotate(txt, # this is the text
-                    (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                    textcoords="offset points", # how to position the text
-                    xytext=(0,10), # distance from text to points (x,y)
-                    ha='center') # horizontal alignment can be left, right or center
 
-    plt.xlabel('$x$')
-    plt.ylabel('$y$')
-    plt.legend(loc='best')
-    plt.grid() 
-    plt.axis('equal')
-    plt.savefig("/home/peter/TRIANGLE/figs/fig1.1.5.png")	
-fig1_1_5(B,C)
 
 
 #Question1.1.6
@@ -179,43 +148,6 @@ print("D:", list(D))
 print("E:", list(E))
 print("F:", list(F))
 
-#Generating all lines
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-
-
-#Plotting all lines
-plt.figure(3)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-
-
-#Labeling the coordinates
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-D = D.reshape(-1,1)
-E = E.reshape(-1,1)
-F = F.reshape(-1,1)
-tri_coords = np.block([[A,B,C,D,E,F]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','D','E','F']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, 
-                 (tri_coords[0,i], tri_coords[1,i]), 
-                 textcoords="offset points", 
-                 xytext=(0,10), 
-                 ha='center')
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() 
-plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.2.1.png')
-
 
 #Question1.2.2
 print("Solution-1.2.2")
@@ -240,7 +172,7 @@ def find_median_equations(A,B,C,D,E,F):
 print(f"Equation of Median AD : y = {slope_median_BC}x + {intercept_median_BC}")
 print(f"Equation of Median BE : y = {slope_median_CA}x + {intercept_median_CA}")
 print(f"Equation of Median CF : y = {slope_median_AB}x + {intercept_median_AB}")   
-
+G=np.array([0,0.33])
 def dir_vec(A, B):
     return B - A
 def norm_vec(A, B):
@@ -258,7 +190,7 @@ def line_gen(A, B):
 x_AB = line_gen(A,B)
 x_BC = line_gen(B,C)
 x_CA = line_gen(C,A)
-plt.figure(4)
+plt.figure(2)
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
 plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
@@ -271,16 +203,16 @@ plt.plot(x_BE[0, :], x_BE[1, :], label='$BE$')
 
 x_CF = line_gen(C, F)
 plt.plot(x_CF[0, :], x_CF[1, :], label='$CF$')
-
 A = A.reshape(-1,1)
 B = B.reshape(-1,1)
 C = C.reshape(-1,1)
 D = D.reshape(-1,1)
 E = E.reshape(-1,1)
 F = F.reshape(-1,1)
-tri_coords = np.block([[A,B,C,D,E,F]])
+G = G.reshape(-1,1)
+tri_coords = np.block([[A,B,C,D,E,F,G]])
 plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','D','E','F']
+vert_labels = ['A','B','C','D','E','F','G']
 for i, txt in enumerate(vert_labels):
     plt.annotate(txt, # this is the text
                  (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
@@ -292,7 +224,7 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid() # minor
 plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.2.2.png')
+plt.savefig('/home/peter/TRIANGLE/figs/fig1.2.2.pdf')
 
 
 #Question1.2.3
@@ -325,43 +257,6 @@ def line_intersect(B,E,C,F):
     return p
 G = line_intersect(B,E,C,F)
 print("The vector G is",G)
-#Generating all lines
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-x_BE = line_gen(B,E)
-x_CF = line_gen(C,F)
-#Plotting all lines
-plt.figure(5)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_BE[0,:],x_BE[1,:],label='$BE$')
-plt.plot(x_CF[0,:],x_CF[1,:],label='$CF$')
-#Labeling the coordinates
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-D = D.reshape(-1,1)
-E = E.reshape(-1,1)
-F = F.reshape(-1,1)
-G = G.reshape(-1,1)
-tri_coords = np.block([[A, B, C, D, E, F, G]])
-plt.scatter(tri_coords[0, :], tri_coords[1, :])
-vert_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-for i, txt in enumerate(vert_labels):
-    offset = 10 if txt == 'G' else -10
-    plt.annotate(txt,
-                 (tri_coords[0, i], tri_coords[1, i]),
-                 textcoords="offset points",
-                 xytext=(0, offset),
-                 ha='center')
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.2.3.png')
 
 
 #Question1.2.4
@@ -417,40 +312,6 @@ print(f"A - F = {A-F}")
 print(f"E - D = {E-D}")
 
 print("Hence verified that A - F = E - D and AFDE is a parallelogram")
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-x_DE = line_gen(D,E)
-x_DF = line_gen(D,F)
-plt.figure(6)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_DE[0,:],x_DE[1,:],label='$DE$')
-plt.plot(x_DF[0,:],x_DF[1,:],label='$DF$')
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-D = D.reshape(-1,1)
-E = E.reshape(-1,1)
-F = F.reshape(-1,1)
-tri_coords = np.block([[A,B,C,D,E,F]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','D','E','F']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt,
-                 (tri_coords[0,i], tri_coords[1,i]), 
-                 textcoords="offset points", 
-                 xytext=(0,10), 
-                 ha='center') 
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid()
-plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.2.7.png')
-
 
 
 print("\n1.3 - Altitude\n")
@@ -473,40 +334,10 @@ A = y[0]
 B = y[1]
 C = y[2]
 D = alt_foot(A,B,C)
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-x_AD = line_gen(A,D)
-plt.figure(7)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_AD[0,:],x_AD[1,:],label='$AD$')
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-D = D.reshape(-1,1)
 
-tri_coords = np.block([[A,B,C,D]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','D']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]),
-                 textcoords="offset points",
-                 xytext=(0,10), 
-                 ha='center') 
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-#calculation code starts
 nt =t@AD_1
 result = A.T@nt
 print(f"The equation of AD is {nt.T}X={result}")
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.3.2.png')
 
 
 #Question1.3.3
@@ -555,19 +386,15 @@ x_CA = line_gen(C,A)
 x_AD = line_gen(D,A)
 x_BE = line_gen(B,E)
 x_CF = line_gen(C,F)
-x_AE = line_gen(A,E)
-x_AF = line_gen(A,F)
 
 #Plotting all lines
-plt.figure(8)
+plt.figure(3)
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
 plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
 plt.plot(x_AD[0,:],x_AD[1,:],label='$AD$')
 plt.plot(x_BE[0,:],x_BE[1,:],label='$BE$')
 plt.plot(x_CF[0,:],x_CF[1,:],label='$CF$')
-plt.plot(x_AE[0,:],x_AE[1,:],linestyle='dotted')
-plt.plot(x_AF[0,:],x_AF[1,:],linestyle='dotted')
 
 
 
@@ -589,7 +416,7 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid() # minor
 plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.3.3.png")
+plt.savefig("/home/peter/TRIANGLE/figs/fig1.3.3.pdf")
 
     
 #Question1.3.4
@@ -665,58 +492,7 @@ F = alt_foot(C,A,B)
 #Finding orthocentre
 H = line_intersect(norm_vec(B,E),E,norm_vec(C,F),F)
 x=H
-#Generating all lines
-x_AB = line_gen(A,B)	
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-x_AD = line_gen(A,alt_foot(A,B,C))
-x_AE = line_gen(A,alt_foot(B,A,C))
-x_BE = line_gen(B,alt_foot(B,A,C))
-x_CF = line_gen(C,alt_foot(C,A,B))
-x_AF = line_gen(A,alt_foot(C,A,B))
-x_CH = line_gen(C,H)
-x_BH = line_gen(B,H)
-x_AH = line_gen(A,H)
 
-#Plotting all lines
-plt.figure(9)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_AD[0,:],x_AD[1,:],label='$AD$')
-plt.plot(x_BE[0,:],x_BE[1,:],label='$BE_1$')
-plt.plot(x_AE[0,:],x_AE[1,:],linestyle = 'dashed',label='$AE_1$')
-plt.plot(x_CF[0,:],x_CF[1,:],label='$CF_1$')
-plt.plot(x_AF[0,:],x_AF[1,:],linestyle = 'dashed',label='$AF_1$')
-plt.plot(x_CH[0,:],x_CH[1,:],label='$CH$')
-plt.plot(x_BH[0,:],x_BH[1,:],label='$BH$')
-plt.plot(x_AH[0,:],x_AH[1,:],linestyle = 'dashed',label='$AH$')
-
-#Labeling the coordinates
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-D = D.reshape(-1,1)
-E = E.reshape(-1,1)
-F = F.reshape(-1,1)
-H = H.reshape(-1,1)
-tri_coords = np.block([[A,B,C,D,E,F,H]])
-#tri_coords = np.vstack((A,B,C,alt_foot(A,B,C),alt_foot(B,A,C),alt_foot(C,A,B),H)).T
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','D_1','E_1','F_1','H']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.3.4.png')
 
 
 #Question1.3.5
@@ -739,35 +515,6 @@ else:
   print("(A - H)^T (B - C)) != 0\nHence the given statement is wrong...")
     #X is point of intersection of line AH and BC
 
-#Generating all lines
-x_AH = line_gen(A,H)
-x_BC = line_gen(B,C)
-x_HD = line_gen(H,D)
-#Plotting all lines
-plt.figure(10)
-plt.plot(x_AH[0,:],x_AH[1,:],label='$AH$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_HD[0,:],x_HD[1,:],linestyle='dotted',label='$BC$')
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-H = H.reshape(-1,1)
-tri_coords = np.block([[A,B,C,H]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','H']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]), 
-                 textcoords="offset points",
-                 xytext=(0,10), 
-                 ha='center') 
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig('/home/peter/TRIANGLE/figs/fig1.3.5.png')
 
 
 print("\n1.4 - Perpendicular Bisector\n")
@@ -796,86 +543,7 @@ equation_coeff3,const3 = perpendicular_bisector(C, A)
 print(f'Equation for perpendicular bisector of AB: ({equation_coeff1[0]:.2f})x + ({equation_coeff1[1]:.2f})y + ({const1:.2f}) = 0')
 print(f'Equation for perpendicular bisector of  BC: ({equation_coeff2[0]:.2f})x + ({equation_coeff2[1]:.2f})y + ({const2:.2f}) = 0')
 print(f'Equation for perpendicular bisector of  CA: ({equation_coeff3[0]:.2f})x + ({equation_coeff3[1]:.2f})y + ({const3:.2f}) = 0')
-#circumcentre of triangle ABC
-def ccircle(A,B,C):
-  p = np.zeros(2)
-  n1 = equation_coeff1[:2]
-  p[0] = 0.5*(np.linalg.norm(A)**2-np.linalg.norm(B)**2)
-  n2 = equation_coeff2[:2]
-  p[1] = 0.5*(np.linalg.norm(B)**2-np.linalg.norm(C)**2)
-  #Intersection
-  N=np.block([[n1],[n2]])
-  O=np.linalg.solve(N,p)
-  return O
-O=ccircle(A,B,C)
-# Generate points along a line
-def line_gen(A, B):
-    len = 10
-    dim = A.shape[0]
-    x_AB = np.zeros((dim, len))
-    lam_1 = np.linspace(0, 1, len)
-    for i in range(len):
-        temp1 = A + lam_1[i] * (B - A)
-        x_AB[:, i] = temp1.T
-    return x_AB
-# Generating all lines
-x_AB = line_gen(A, B)
-x_BC = line_gen(B, C)
-x_CA = line_gen(C, A)
-# Plotting all lines
-plt.figure(11)
-plt.plot(x_AB[0, :], x_AB[1, :], label='$AB$')
-plt.plot(x_BC[0, :], x_BC[1, :], label='$BC$')
-plt.plot(x_CA[0, :], x_CA[1, :], label='$CA$')
-# Perpendicular bisector
-def line_dir_pt(m, A, k1=0, k2=1):
-    len = 10
-    dim = A.shape[0]
-    x_AB = np.zeros((dim, len))
-    lam_1 = np.linspace(k1, k2, len)
-    for i in range(len):
-        temp1 = A + lam_1[i] * m
-        x_AB[:, i] = temp1.T
-    return x_AB
-# Calculate the perpendicular vector and plot arrows
-def perpendicular(B, C, label):
-    perpendicular=norm_vec(B,C)
-    mid = midpoint(B, C)
-    x_D = line_dir_pt(perpendicular, mid, 0, 1)
-    plt.arrow(mid[0], mid[1], perpendicular[0], perpendicular[1], color='blue', head_width=0.4, head_length=0.4, label=label)
-    plt.arrow(mid[0], mid[1], -perpendicular[0], -perpendicular[1], color='blue', head_width=0.4, head_length=0.4)
-    return x_D
-x_D = perpendicular(A, B, 'OD')
-x_E = perpendicular(B, C, 'OE')
-x_F = perpendicular(C, A, 'OF')
-mid1 = midpoint(A, B)
-mid2 = midpoint(B, C)
-mid3 = midpoint(C, A)
-#Labeling the coordinates
-#tri_coords = np.vstack((A,B,C,O,I)).T
-#np.block([[A1,A2,B1,B2]])
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-O = O.reshape(-1,1)
-mid12=mid1.reshape(-1,1)
-mid23=mid2.reshape(-1,1)
-mid31=mid3.reshape(-1,1)
-tri_coords = np.block([[A,B,C,O,mid12,mid23,mid31]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','O','D','E','F']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.1.png")
+
 
 
 
@@ -914,34 +582,51 @@ AC = dir_vec(A,C)
 F = (A+B)/2
 # midpoint of A & C is E
 E = (A+C)/2
+D=(B+C)/2
 # O is the point of intersection of perpendicular bisectors of AB and AC
 O = line_intersect(AB,F,AC,E)
 print(O)
+# Circle parameters
+center = O
+radius = np.linalg.norm(A - O)
 
+# Create circle
+theta = np.linspace(0, 2*np.pi, 100)
+x_circle = center[0] + radius * np.cos(theta)
+y_circle = center[1] + radius * np.sin(theta)
 #Generating all lines 
 x_AB = line_gen(A,B)
 x_BC = line_gen(B,C)
 x_CA = line_gen(C,A)
 x_OE = line_gen(O,E)
 x_OF = line_gen(O,F)
+x_OD = line_gen(O,D)
+x_OC = line_gen(O,C)
+x_OB = line_gen(O,B)
+
 
 #plotting all lines
-plt.figure(12) 
+plt.figure(4) 
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
 plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
 plt.plot(x_OE[0,:],x_OE[1,:],label='$OE$')
 plt.plot(x_OF[0,:],x_OF[1,:],label='$OF$')
+plt.plot(x_OD[0,:],x_OD[1,:],label='$OG$')
+plt.plot(x_OC[0,:],x_OC[1,:],linestyle='dotted',label='$OC$')
+plt.plot(x_OB[0,:],x_OB[1,:],linestyle='dotted',label='$OB$')
+plt.plot(x_circle, y_circle, label='Circle')
 
 A = A.reshape(-1,1)
 B = B.reshape(-1,1)
 C = C.reshape(-1,1)
 O = O.reshape(-1,1)
+D = D.reshape(-1,1)
 E = E.reshape(-1,1)
 F = F.reshape(-1,1)
-tri_coords = np.block([[A,B,C,O,E,F]])
+tri_coords = np.block([[A,B,C,O,D,E,F]])
 plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','O','E','F']
+vert_labels = ['A','B','C','O','D','E','F']
 for i, txt in enumerate(vert_labels):
     plt.annotate(txt, # this is the text
                  (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
@@ -955,7 +640,7 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid() # minor
 plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.2.png")
+plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.2.pdf")
 
 #Question1.4.3
 print("Solution-1.4.3") 
@@ -983,7 +668,7 @@ def line_gen(A,B):
     temp1 = A + lam_1[i]*(B-A)
     x_AB[:,i]= temp1.T
   return x_AB
-# direction vector along line joining A & B
+
 AB = dir_vec(A,B)
 # direction vector along line joining A & C
 AC = dir_vec(A,C)
@@ -993,46 +678,7 @@ F = (A+B)/2
 E = (A+C)/2
 # O is the point of intersection of perpendicular bisectors of AB and AC
 O = line_intersect(AB,F,AC,E)
-G=(C+B)/2
-#Generating all lines 
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-#x_OE = line_gen(O,E)
-#x_OF = line_gen(O,F)
-x_OG=line_gen(O,G)
-
-#plotting all lines 
-plt.figure(13)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_OG[0,:],x_OG[1,:],label='$OG$')
-
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-O = O.reshape(-1,1)
-E = E.reshape(-1,1)
-F = F.reshape(-1,1)
-G= G.reshape(-1,1)
-tri_coords = np.block([[A,B,C,O,E,F,G]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','O','E','F','G']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.3.png")
+print("O = "+str(O)+"\n Hence verified.")
 
 #Question1.4.4
 print("Solution-1.4.4") 
@@ -1058,60 +704,7 @@ print("Hence verified.")
 
 #Question1.4.5
 print("Solution-1.4.5") 
-# Given points
-A = y[0]
-B = y[1]
-C = y[2]
-O = line_intersect(AB,F,AC,E)
-
-# Circle parameters
-center = O
-radius = np.linalg.norm(A - O)
-
-# Create circle
-theta = np.linspace(0, 2*np.pi, 100)
-x_circle = center[0] + radius * np.cos(theta)
-y_circle = center[1] + radius * np.sin(theta)
-
-# Create lines
-x_line_AB = [A[0], B[0]]
-y_line_AB = [A[1], B[1]]
-
-x_line_AC = [A[0], C[0]]
-y_line_AC = [A[1], C[1]]
-
-x_line_OB = [O[0], B[0]]
-y_line_OB = [O[1], B[1]]
-
-x_line_BC = [B[0], C[0]]
-y_line_BC = [B[1], C[1]]
-
-# Plotting
-plt.figure(14)
-plt.plot(x_circle, y_circle, label='Circle')
-plt.plot(x_line_AB, y_line_AB, label='AB')
-plt.plot(x_line_AC, y_line_AC, label='AC')
-plt.plot(x_line_OB, y_line_OB, label='r')
-plt.plot(x_line_BC, y_line_BC, label='OC')
-
-# Mark the points
-plt.scatter([A[0], B[0], C[0], O[0]], [A[1], B[1], C[1], O[1]], color='red')
-plt.text(A[0], A[1], 'A', fontsize=12, verticalalignment='bottom')
-plt.text(B[0], B[1], 'B', fontsize=12, verticalalignment='bottom')
-plt.text(C[0], C[1], 'C', fontsize=12, verticalalignment='bottom')
-plt.text(O[0], O[1], 'O', fontsize=12, verticalalignment='bottom')
-
-plt.axhline(0, color='black', linewidth=0.8)
-plt.axvline(0, color='black', linewidth=0.8)
-plt.grid()
-plt.legend()
-plt.title('Circle with Lines')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.5.png")
-print("Figure Generted")
-
+print("Figure  Generated")
 #Question1.4.6
 print("Solution-1.4.6") 
 # Given points
@@ -1142,52 +735,6 @@ if angle_BOC == 2 * angle_BAC:
 else:
   print("\nangle BOC ≠ 2 times angle BAC\nHence the given statement is wrong")
 
-# Circle parameters
-center = O
-radius = np.linalg.norm(A - O)
-
-# Create circle
-theta = np.linspace(0, 2*np.pi, 100)
-x_circle = center[0] + radius * np.cos(theta)
-y_circle = center[1] + radius * np.sin(theta)
-
-# Create lines
-x_line_AB = [A[0], B[0]]
-y_line_AB = [A[1], B[1]]
-
-x_line_AC = [A[0], C[0]]
-y_line_AC = [A[1], C[1]]
-
-x_line_OB = [O[0], B[0]]
-y_line_OB = [O[1], B[1]]
-
-x_line_OC = [O[0], C[0]]
-y_line_OC = [O[1], C[1]]
-
-# Plotting
-plt.figure(15)
-plt.plot(x_circle, y_circle, label='Circle')
-plt.plot(x_line_AB, y_line_AB, label='AB')
-plt.plot(x_line_AC, y_line_AC, label='AC')
-plt.plot(x_line_OB, y_line_OB, label='OB')
-plt.plot(x_line_OC, y_line_OC, label='OC')
-
-# Mark the points
-plt.scatter([A[0], B[0], C[0], O[0]], [A[1], B[1], C[1], O[1]], color='red')
-plt.text(A[0], A[1], 'A', fontsize=12, verticalalignment='bottom')
-plt.text(B[0], B[1], 'B', fontsize=12, verticalalignment='bottom')
-plt.text(C[0], C[1], 'C', fontsize=12, verticalalignment='bottom')
-plt.text(O[0], O[1], 'O', fontsize=12, verticalalignment='bottom')
-
-plt.axhline(0, color='black', linewidth=0.8)
-plt.axvline(0, color='black', linewidth=0.8)
-plt.grid()
-plt.legend()
-plt.title('Circle with Lines')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.4.6.png")
 
 
 #Question1.4.7
@@ -1263,46 +810,6 @@ def line_gen(A,B):
     x_AB[:,i]= temp1.T
   return x_AB
   
-#generating sides of triangle
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-
-#generating angle bisectors
-k1=[-6,-6]
-k2=[6,6]  
-x_A = line_dir_pt(m_a,A,k1,k2)
-x_B = line_dir_pt(m_b,B,k1,k2)
-x_C = line_dir_pt(m_c,C,k1,k2)
-
-#plotting Angle bisectors
-plt.figure(16)
-plt.plot(x_A[0,:],x_A[1,:],label='angle bisector of A')
-plt.plot(x_B[0,:],x_B[1,:],label='angle bisector of B')
-plt.plot(x_C[0,:],x_C[1,:],label='angle bisector of C')
-
-#plotting sides
-
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-
-tri_coords = np.block([[A],[B],[C]])
-plt.scatter(tri_coords[:,0], tri_coords[:,1])
-vert_labels = ['A','B','C']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[i,0], tri_coords[i,1]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.1.png")
 A = y[0]
 B = y[1]
 C = y[2]
@@ -1364,37 +871,6 @@ def line_gen(A,B):
     x_AB[:,i]= temp1.T
   return x_AB
 
-x_AB = line_gen(A,B)
-x_BC = line_gen(B,C)
-x_CA = line_gen(C,A)
-x_BI = line_gen(B,I)
-x_CI = line_gen(C,I)
-
-#Plotting all lines
-plt.figure(17)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-plt.plot(x_CI[0,:],x_CI[1,:],label='$CI$')
-plt.plot(x_BI[0,:],x_BI[1,:],label='$BI$')
-
-#Labeling the coordinates
-tri_coords = np.block([[A],[B],[C],[I]])
-plt.scatter(tri_coords[:,0], tri_coords[:,1])
-vert_labels = ['A','B','C','I']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[i,0], tri_coords[i,1]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.2.png")
 
 
 #Question1.5.3
@@ -1444,27 +920,7 @@ if np.isclose(angle_BAI, angle_CAI):
 else:
     print("error")
 
-#Labeling the coordinates
-A = A.reshape(-1,1)
-B = B.reshape(-1,1)
-C = C.reshape(-1,1)
-I = I.reshape(-1,1)
-tri_coords = np.block([[A,B,C,I]])
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','I']
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-		 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
 
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.3.png")
 
 
 #Question1.5.4
@@ -1518,44 +974,6 @@ print("Distance between I and AC is",r2)
 #Question1.5.7
 print("Solution-1.5.7")
 
-x_AB = line_gen(A, B)
-x_BC = line_gen(B, C)
-x_CA = line_gen(C, A)
-
-#generating the incircle
-[I,r] = icircle(A,B,C)
-x_icirc= circ_gen(I,r)
-
-#plotiing the lines
-plt.figure(19)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
-plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
-
-#plotting the incircle
-plt.plot(x_icirc[0,:],x_icirc[1,:],label='$incircle$')
-
-#labelling the coordinates
-tri_coords = np.block([[A],[B],[C],[I]]).T
-tri_coords = tri_coords.reshape(2, -1)
-plt.scatter(tri_coords[0,:], tri_coords[1,:])
-vert_labels = ['A','B','C','I']
-
-for i, txt in enumerate(vert_labels):
-    plt.annotate(txt, # this is the text
-                 (tri_coords[0,i], tri_coords[1,i]), # this is the point to label
-                 textcoords="offset points", # how to position the text
-                 xytext=(0,10), # distance from text to points (x,y)
-                 ha='center') # horizontal alignment can be left, right or center
-
-
-plt.xlabel('$x$')
-plt.ylabel('$y$')
-plt.legend(loc='best')
-plt.grid() # minor
-plt.axis('equal')
-
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.7.png")
 print("Diagram Generated")
 
 
@@ -1642,12 +1060,14 @@ print("F3 = ",F_3)
 x_AB = line_gen(A,B)
 x_BC = line_gen(B,C)
 x_CA = line_gen(C,A)
-
+x_BI = line_gen(B,I)
+x_CI = line_gen(C,I)
+x_IA = line_gen(I,A)
 #Generating the incircle
 [I,r] = icircle(A,B,C)
 x_icirc= circ_gen(I,r)
 #Plotting all lines
-plt.figure(20)
+plt.figure(5)
 plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$')
 plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$')
 plt.plot(x_CA[0,:],x_CA[1,:],label='$CA$')
@@ -1657,6 +1077,9 @@ plt.plot(x_icirc[0,:],x_icirc[1,:],label='$incircle$')
 plt.plot(D_3[0],D_3[1],label='$D_3$')
 plt.plot(E_3[0],E_3[1],label='$E_3$')
 plt.plot(F_3[0],F_3[1],label='$F_3$')
+plt.plot(x_CI[0,:],x_CI[1,:],label='$IC$')
+plt.plot(x_BI[0,:],x_BI[1,:],label='$IB$')
+plt.plot(x_IA[0,:],x_IA[1,:],label='$IA$')
 A = A.reshape(-1,1)
 B = B.reshape(-1,1)
 C = C.reshape(-1,1)
@@ -1680,7 +1103,7 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid() # minor
 plt.axis('equal')
-plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.9.png")
+plt.savefig("/home/peter/TRIANGLE/figs/fig1.5.9.pdf")
 
 #Question1.5.10
 print("Solution-1.5.10")

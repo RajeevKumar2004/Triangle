@@ -123,9 +123,9 @@
 \setlongtables
 
 \setlength\gnumericTableWidth{%
-	85pt+%
-	67pt+%
-	183pt+%
+	70pt+%
+	53pt+%
+	185pt+%
 0pt}
 \def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
@@ -145,9 +145,9 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{85pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{67pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{183pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{70pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{53pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{185pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
@@ -189,43 +189,67 @@
 
 \hhline{|-|-|-}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Parameter}}
+	{\gnumericPB{\centering}\gnumbox{Parameters}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Values}}
+	{\gnumericPB{\centering}\gnumbox{Values}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Description}}
+	{\gnumericPB{\centering}\gnumbox{Description}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{D}$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{O}-\vec{D}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{1.5\\1}}}
+	{\gnumericPB{\centering}\gnumbox{\myvec{-0.5\\-0.88}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{C}-\vec{B}$}}
+	{\gnumericPB{\centering}\gnumbox{Perpendicular bisector of $\vec{C}-\vec{B}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{E}$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{O}-\vec{E}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-2.5\\1}}}
+	{\gnumericPB{\centering}\gnumbox{\myvec{3.5\\-0.88}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{A}-\vec{C}$}}
+	{\gnumericPB{\centering}\gnumbox{Perpendicular bisector of $\vec{A}-\vec{C}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{F}$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{O}-\vec{F}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{1\\-1}}}
+	{\gnumericPB{\centering}\gnumbox{\myvec{0\\1.12}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{B}-\vec{A}$}}
+	{\gnumericPB{\centering}\gnumbox{Perpendicular bisector of $\vec{B}-\vec{A}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{G}$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{O}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{0\\0.33}}}
+	{\gnumericPB{\centering}\gnumbox{\myvec{1\\0.12}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Intersection point of all medians}}
+	{\gnumericPB{\centering}\gnumbox{Circumcentre}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\vec{O}-\vec{B}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{4.155}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Radius of circumcircle}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\angle{BAC}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{75.964\degree}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Angle subtened to circle from chord $\vec{C}-\vec{B}$}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\angle{BOC}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{151.928\degree}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Angle subtended to centre from chord $\vec{C}-\vec{B}$}}
 \\
 \hhline{|-|-|-|}
 \end{tabular}

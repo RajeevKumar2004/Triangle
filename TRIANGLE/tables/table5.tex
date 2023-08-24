@@ -123,9 +123,9 @@
 \setlongtables
 
 \setlength\gnumericTableWidth{%
-	85pt+%
-	67pt+%
-	183pt+%
+	71pt+%
+	69pt+%
+	243pt+%
 0pt}
 \def\gumericNumCols{3}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
@@ -145,9 +145,9 @@
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{85pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{67pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{183pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColA}}{\newlength{\gnumericColA}}{}\settowidth{\gnumericColA}{\begin{tabular}{@{}p{71pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{69pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{243pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{tabular}[c]{%
 	b{\gnumericColA}%
@@ -189,7 +189,7 @@
 
 \hhline{|-|-|-}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Parameter}}
+	{\gnumericPB{\centering}\gnumbox[c]{Parameters}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
 	{\gnumericPB{\centering}\gnumbox[c]{Values}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
@@ -197,35 +197,86 @@
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{D}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{I}-\vec{A}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{1.5\\1}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{2.03\\1.59}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{C}-\vec{B}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{Angle Bisector of $\vec{A}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{E}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{I}-\vec{A}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-2.5\\1}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{-5.97\\1.59}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{A}-\vec{C}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{Angle Bisector of $\vec{B}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{F}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{$\vec{I}-\vec{A}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{1\\-1}}}
+	{\gnumericPB{\centering}\gnumbox[c]{\myvec{1.03\\-2.41}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{mid-point of $\vec{B}-\vec{A}$}}
+	{\gnumericPB{\centering}\gnumbox[c]{Angle Bisector of $\vec{C}$}}
 \\
 \hhline{|---|}
 	 \multicolumn{1}{|p{\gnumericColA}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{$\vec{G}$}}
+	{\gnumericPB{\centering}\gnumbox{$\vec{I}$}}
 	&\multicolumn{1}{p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{\myvec{0\\0.33}}}
+	{\gnumericPB{\centering}\gnumbox{\myvec{-0.97\\0.59}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox[c]{Intersection point of all medians}}
+	{\gnumericPB{\centering}\gnumbox{Incenter}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\angle{BAI}, \, \angle{CAI}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{37.98\degree}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{Angle made by Angle bisector AI}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\angle{ABI}, \, \angle{CBI}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{14.87\degree}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+    {\gnumericPB{\centering}\gnumbox{Angle made by Angle bisector BI}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$\angle{ACI}, \, \angle{BCI}$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{37.15\degree}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+    {\gnumericPB{\centering}\gnumbox{Angle made by Angle bisector CI}}
+\\
+\hhline{|---|}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$D_3$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\myvec{-0.18\\1.95}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\setlength{\gnumericMultiRowLength}{0pt}%
+	 \addtolength{\gnumericMultiRowLength}{\gnumericColC}%
+	 \multirow{3}[1]{\gnumericMultiRowLength}{\parbox{\gnumericMultiRowLength}{%
+	 \gnumericPB{\centering}\gnumbox{Point of intesection of triangle and incircle}}}}
+\\
+\hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$E_3$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\myvec{-0.96\\-1}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
+\\
+\hhline{|--|~}
+	 \multicolumn{1}{|p{\gnumericColA}|}%
+	{\gnumericPB{\centering}\gnumbox{$F_3$}}
+	&\multicolumn{1}{p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{\myvec{-0.45\\096}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{}
 \\
 \hhline{|-|-|-|}
 \end{tabular}

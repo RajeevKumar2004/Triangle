@@ -1,7 +1,7 @@
 
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
        \def\inputGnumericTable{}                                 %%
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
@@ -18,6 +18,8 @@
 \usepackage{tkz-euclide} % loads  TikZ and tkz-base
 \usepackage{listings}
 \usepackage{gvv}
+\usepackage{caption}
+\usepackage{float}
 %
 %\usepackage{setspace}
 %\usepackage{gensymb}
@@ -173,11 +175,7 @@
 % make the title area
 \maketitle
 
-\newpage
 
-%\tableofcontents
-
-\bigskip
 
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
@@ -211,163 +209,88 @@
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 %\IEEEpeerreviewmaketitle
-\counterwithin{figure}{section}
-\counterwithin{table}{section}
-\section{Vectors}
+\captionsetup[figure]{justification=centering}
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
 Consider a triangle with vertices
 $$\vec{A}=\myvec{-3\\-1}, 
 \vec{B}=\myvec{5\\-1}, 
 \vec{C}=\myvec{-2\\3}$$
 
-\begin{table}[!ht]
+\section{Vectors}
+\begin{figure}[H]
+              \centering
+              \includegraphics[width=\columnwidth]{./figs/fig1.1.3.pdf}
+              \caption{Vectors}
+              \label{fig:1}
+\end{figure}
+\begin{table}[H]
+    \centering
 	\input{tables/table1.tex}
-	\caption{Vector}
+	\caption{Vectors}
 	\label{tab:vectors}	
 \end{table}
 
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.1.3.png}
-              \caption{Plot of triangle ABC}
-              \label{fig:1}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.1.5.png}
-              \caption{Plot of line BC}
-              \label{fig:2}
-\end{figure}
-
 
 \section{Median}
-\begin{table}[!ht]
+\begin{figure}[H]
+              \centering
+              \includegraphics[width=\columnwidth]{./figs/fig1.2.2.pdf}
+              \caption{Median}
+              \label{fig:4}
+\end{figure}
+\begin{table}[H]
+    \centering
 	\input{tables/table2.tex}
 	\caption{Median}
 	\label{tab:Median}	
 \end{table}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.2.1.png}
-              \caption{Triangle ABC with midpoint D,E and F}
-              \label{fig:3}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.2.2.png}
-              \caption{Median AD, BE and CF}
-              \label{fig:4}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.2.3.png}
-              \caption{Intersection of BE and CF at point G}
-              \label{fig:5}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.2.7.png}
-              \caption{Quadilateral AFDE in triangle ABC}
-              \label{fig:6}
-\end{figure}
+
 
 
 \section{Altitude}
-\begin{table}[!ht]
+\begin{figure}[H]
+              \centering
+              \includegraphics[width=\columnwidth]{./figs/fig1.3.3.pdf}
+              \caption{Altitude}
+              \label{fig:8}
+\end{figure}
+\begin{table}[H]
+    \centering
 	\input{tables/table3.tex}
 	\caption{Altitude}
 	\label{tab:Altitude}	
 \end{table}
 
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.3.2.png}
-              \caption{Altitude AD of line BC}
-              \label{fig:7}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.3.3.png}
-              \caption{Altitude AD, BE, CF}
-              \label{fig:8}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.3.4.png}
-              \caption{Point of intersection H of altitudes}
-              \label{fig:9}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.3.5.png}
-              \caption{Line AH and BC}
-              \label{fig:10}
-\end{figure}
-
-
 \section{Perpendicular Bisector}
-\begin{figure}[!ht]
+
+\begin{figure}[H]
               \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.4.1.png}
-              \caption{Plot of perpendicular bisectors}
-              \label{fig:11}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.4.2.png}
-              \caption{OE and OF are perpendiculat bisectors of AC and AB,respectively}
+              \includegraphics[width=\columnwidth]{./figs/fig1.4.2.pdf}
+              \caption{Perpendiculat Bisectors}
               \label{fig:12}
 \end{figure}
-\begin{figure}[h]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.4.3.png}
-              \caption{Circumcenter of triangle ABC}
-              \label{fig:13}
-\end{figure}
-\begin{figure}[h]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.4.5.png}
-              \caption{Plot of triangle ABC with circumcenter O and radius r}
-              \label{fig:14}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.4.6.png}
-              \caption{Plot of circumcircle and points A, B, C and D}
-              \label{fig:15}
-\end{figure}
-
+\begin{table}[H]
+    \centering
+	\input{tables/table4.tex}
+	\caption{Perpendicular Bisector}
+	\label{tab:perpendicular bisector}	
+\end{table}
 
 \section{Angle Bisector}
-\begin{figure}[!ht]
+
+\begin{figure}[H]
               \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.5.1.png}
-              \caption{Angle Bisectors}
-              \label{fig:16}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.5.2.png}
-              \caption{Intersection point of angle bisectors of B and C}
-              \label{fig:17}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.5.3.png}
-              \caption{Triangle ABC with incentre I}
-              \label{fig:18}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.5.7.png}
-              \caption{Incircle of Triangle ABC}
-              \label{fig:19}
-\end{figure}
-\begin{figure}[!ht]
-              \centering
-              \includegraphics[width=\columnwidth]{./figs/fig1.5.9.png}
-              \caption{Point $D_3$, $E_3$ and $F_3$}
+              \includegraphics[width=\columnwidth]{./figs/fig1.5.9.pdf}
+              \caption{Angle Bisector}
               \label{fig:20}
 \end{figure}
+\begin{table}[H]
+    \centering
+	\input{tables/table5.tex}
+	\caption{Angle Bisector}
+	\label{tab:angle bisector}	
+\end{table}
 
 \end{document}
 
